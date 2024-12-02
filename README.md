@@ -1,4 +1,8 @@
 # Encode Club EVM Bootcamp Group 2, Assignment 5: Blockchian Lottery App
+- [Encode Club EVM Bootcamp Group 2, Assignment 5: Blockchian Lottery App](#encode-club-evm-bootcamp-group-2-assignment-5-blockchian-lottery-app)
+  - [Overview](#overview)
+  - [Install Intructions](#install-intructions)
+    - [Install Steps](#install-steps)
 
 ## Overview
 
@@ -47,7 +51,7 @@ In your terminal do the following:
 
 6. Go to parent hardhat directory: `cd ../contracts`
 7. Install hardhat project:  `pnpm install`
-   - **Important:** If you plan to run smart contract tests, scripts, or compile contracts please rename `hardhat.config-public-copy.ts` to `hardhat.config.ts`.  Be sure to further configure it to include any ncessary environment variables as discussed in previous class lectures/
+   - **Important:** If you plan to run smart contract tests, scripts, or compile contracts please rename `hardhat.config-public-copy.ts` to `hardhat.config.ts`.  Be sure to further configure it to include any ncessary environment variables as discussed in previous lessons!
 
 
 
