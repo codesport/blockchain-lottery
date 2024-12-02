@@ -3,6 +3,7 @@
   - [Overview](#overview)
   - [Install Intructions](#install-intructions)
     - [Install Steps](#install-steps)
+- [Personal Notes: Bootstrapping Project](#personal-notes-bootstrapping-project)
 
 ## Overview
 
@@ -46,17 +47,46 @@ In your terminal do the following:
 3. Go to the nextjs directory: `cd blockchain-lottery/nextjs`
 4. Install the frontend project: 
    * Add a .env file with any necessary enviornment variables as discussed in previous classes
-   * Add a special nextjs envirement variable:
+   * Add a special nextjs environment variable to .env:
       * Include your custom RPC url and assign it as `NEXT_PUBLIC_SEPOLIA_RPC_URL_2="<custom alchemy or infura rpc url>"`
    * Run: `pnpm install`
    
-5. Launch Next.js sever: `pnpm dev`.  You should see the below in your browser:
+5. Launch Next.js server: `pnpm dev`.  You should see the below in your browser:
 
    ![directory top level](/images/version1.png)
 
 6. Go to hardhat directory: `cd ../contracts`
 7. Install hardhat project:  `pnpm install`
    - **Important:** If you plan to run smart contract tests, scripts, or compile contracts please rename `hardhat.config-public-copy.ts` to `hardhat.config.ts`.  Be sure to further configure it to include any ncessary environment variables as discussed in previous lessons!
+
+
+# Personal Notes: Bootstrapping Project
+```
+mkdir week5
+cd week5
+mkdir contracts && cd contracts
+pnpm init
+pnpm add -D hardhat
+pnpm install dotenv
+pnpm add @openzeppelin/contracts
+pnpm dlx hardhat init
+pnpm hardhat test
+rm .gitignore
+rm -rf .git
+
+npx hardhat compile # pnpm dlx hardhat compile
+mkdir nextjs && cd nextjs
+pnpm create next-app@latest
+pnpm add wagmi viem@2.x @tanstack/react-query
+rm .gitignore
+rm -rf .git
+
+cd ../../
+
+git init # install and manage git in parent folder, week5
+```
+
+Install rainbowkit files (layout.tsx, providers.tsx, wagmi.ts) from `with-next-app` example
 
 
 
