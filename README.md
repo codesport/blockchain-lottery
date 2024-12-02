@@ -9,7 +9,7 @@
 This project leverages learnings from the [Browser-based Voting App](https://github.com/codesport/erc20votes-part2). 
 
 
-It is a browser based application which demonstrates the following **on-chain read-write functionalities** using wagmi/viem:
+It is a web-based Lottery application which demonstrates the following **on-chain read-write functionalities** using wagmi/viem:
 
    * Buy/Return tokens
    * View/Place bets
