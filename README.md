@@ -19,7 +19,7 @@ It terms of team responsibilities, there are 3-core parts:
 
 1. UI and UX using Nextjs-React along with Tailwind and complemenatry CSS element libraries like shadcn.
 2. Writing functional components using wagmi hooks for **on-chain read-write functions**
-3. Unit-testing within hardhat
+3. Unit-testing within hardhat 
 
 ## Install Intructions
 
@@ -27,7 +27,7 @@ This repo contains 2 directories: `contracts` and `nextjs`
 
 * `contracts` contains all files and dependencies for Hardhat/Viem contract development, deployment and testing.
 
-* `nextjs` is the front and backend server for connecting the brower to the blockchain
+* `nextjs` is the front and backend server for connecting the browser to the blockchain
 
 pnpm is the package manager. However, yarn and npm should also work. In the isntructions below, you can typcially subsititute the keyword `pnpm` for `npm`
 
@@ -35,65 +35,18 @@ pnpm is the package manager. However, yarn and npm should also work. In the isnt
 In your terminal do the following:
 
 1. Clone this repo
-2. **Important:** Place a `.gitignore` in the parent folder. It will server as the parent .gitignore for your subdirectories.  Your directory structure should look like this:
+2. **Important:**  rename `public.gitignore` to .gitignore in the parent folder. It will serve as the parent .gitignore for your subdirectories.  Your directory structure should look like this:
  
- - ![directory top level](/images/toplevel-directory.png)
+   ![directory top level](/images/toplevel-directory.png)
 
- - At minimum your gitignore shoould contain:
-   ```
-   # Ignore sensitive, personal, and custom files
-    *.env*
-
-   # Ignore Package Manager Files
-   node_modules
-   pnpm-lock.yaml
-   package-lock.json
-   yarn.lock
-
-   # NEXTJS
-   # dependencies
-   /node_modules
-   /.pnp
-   .pnp.*
-   .yarn/*
-   !.yarn/patches
-   !.yarn/plugins
-   !.yarn/releases
-   !.yarn/versions
-
-   # testing
-   /coverage
-
-   # next.js
-   /.next/
-   /out/
-
-   # production
-   /build
-
-   # misc
-   .DS_Store
-   *.pem
-
-   # debug
-   npm-debug.log*
-   yarn-debug.log*
-   yarn-error.log*
-
-   # env files (can opt-in for committing if needed)
-   .env*
-
-   # vercel
-   .vercel
-
-   # typescript
-   *.tsbuildinfo
-   next-env.d.ts
-   ```
 3. Go to the nextjs directory: `cd blockchain-lottery/nextjs`
-4. Install frontend project:  `pnpm install`
-5. Go to parent hardhat directory: `cd ../contracts`
-6. Install hardhat project:  `pnpm install`
+4. Install the frontend project:  `pnpm install`
+5. Luanch Next.js sever: `pnpm dev`.  You should see the below in your browser:
+
+   ![directory top level](/images/version1.png)
+
+6. Go to parent hardhat directory: `cd ../contracts`
+7. Install hardhat project:  `pnpm install`
    - **Important:** If you plan to run smart contract tests, scripts, or compile contracts please rename `hardhat.config-public-copy.ts` to `hardhat.config.ts`.  Be sure to further configure it to include any ncessary environment variables as discussed in previous class lectures/
 
 
