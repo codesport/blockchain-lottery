@@ -66,10 +66,10 @@ mkdir week5
 cd week5
 mkdir contracts && cd contracts
 pnpm init
-pnpm add -D hardhat
+pnpm add -D hardhat   # same as: pnpm install -D hardhat 
 pnpm install dotenv
-pnpm add @openzeppelin/contracts
-pnpm dlx hardhat init
+pnpm add @openzeppelin/contracts # same as: pnpm install @openzeppelin/contracts
+pnpm dlx hardhat init  # if using npm try: npx hardhat init
 pnpm hardhat test
 rm .gitignore
 rm -rf .git
