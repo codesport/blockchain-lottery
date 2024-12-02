@@ -44,12 +44,17 @@ In your terminal do the following:
    ![directory top level](/images/toplevel-directory.png)
 
 3. Go to the nextjs directory: `cd blockchain-lottery/nextjs`
-4. Install the frontend project:  `pnpm install`
-5. Luanch Next.js sever: `pnpm dev`.  You should see the below in your browser:
+4. Install the frontend project: 
+   * Add a .env file with any necessary enviornment variables as discussed in previous classes
+   * Add a special nextjs envirement variable:
+      * Include your custom RPC url and assign it as `NEXT_PUBLIC_SEPOLIA_RPC_URL_2="<custom alchemy or infura rpc url>"`
+   * Run: `pnpm install`
+   
+5. Launch Next.js sever: `pnpm dev`.  You should see the below in your browser:
 
    ![directory top level](/images/version1.png)
 
-6. Go to parent hardhat directory: `cd ../contracts`
+6. Go to hardhat directory: `cd ../contracts`
 7. Install hardhat project:  `pnpm install`
    - **Important:** If you plan to run smart contract tests, scripts, or compile contracts please rename `hardhat.config-public-copy.ts` to `hardhat.config.ts`.  Be sure to further configure it to include any ncessary environment variables as discussed in previous lessons!
 
