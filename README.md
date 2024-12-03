@@ -63,6 +63,8 @@ In your terminal do the following:
 
 # Personal Notes: Bootstrapping Project
 
+These are my personal notes.  So, please follow instructions above for installing repo.
+
 Command line workflow for bootstrapping this repo:
 ```
 mkdir week5
