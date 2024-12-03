@@ -22,7 +22,7 @@ It is a web-based Lottery application which demonstrates the following **on-chai
 
 It terms of team responsibilities, there are 3-core parts:
 
-1. Unit-testing [within hardhat](contracts/test/LotterToken.ts) 
+1. Unit-testing [within hardhat](contracts/test/) 
 2. UI and UX using Nextjs-React along with Tailwind and complemenatry CSS element libraries like shadcn.
 3. Writing functional components using wagmi hooks for **on-chain read-write functions**
 
