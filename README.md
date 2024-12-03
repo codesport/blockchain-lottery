@@ -62,6 +62,8 @@ In your terminal do the following:
 
 
 # Personal Notes: Bootstrapping Project
+
+Command line workflow for bootstrapping this repo:
 ```
 mkdir week5
 cd week5
