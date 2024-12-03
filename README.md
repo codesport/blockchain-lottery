@@ -87,7 +87,7 @@ cd ../../
 git init # install and manage git in parent folder, week5
 ```
 
-Install rainbowkit files (layout.tsx, providers.tsx, wagmi.ts) from `with-next-app` example
+Install rainbowkit files (layout.tsx, providers.tsx, wagmi.ts) from [`with-next-app` example](https://github.com/codesport/rainbowkit/tree/main/examples/with-next-app/src/app)
 
 
 
