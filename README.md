@@ -1,7 +1,7 @@
-# Encode Club EVM Bootcamp Group 2, Assignment 5: Blockchian Lottery App
-- [Encode Club EVM Bootcamp Group 2, Assignment 5: Blockchian Lottery App](#encode-club-evm-bootcamp-group-2-assignment-5-blockchian-lottery-app)
+# Encode Club EVM Bootcamp Group 2, Assignment 5: Blockchain Lottery App
+- [Encode Club EVM Bootcamp Group 2, Assignment 5: Blockchain Lottery App](#encode-club-evm-bootcamp-group-2-assignment-5-blockchain-lottery-app)
   - [Overview](#overview)
-  - [Install Intructions](#install-intructions)
+  - [Install Instructions](#install-instructions)
     - [Install Steps](#install-steps)
 - [Personal Notes: Bootstrapping Project](#personal-notes-bootstrapping-project)
 
@@ -27,7 +27,7 @@ It terms of team responsibilities, there are 3-core parts:
 3. Writing functional components using wagmi hooks for **on-chain read-write functions**
 
 
-## Install Intructions
+## Install Instructions
 
 This repo contains 2 directories: `contracts` and `nextjs`
 
