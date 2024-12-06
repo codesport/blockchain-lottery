@@ -1,3 +1,44 @@
+//source: https://github.com/Encode-Club-Solidity-Bootcamp/Lesson-20/blob/master/solution/Lottery.ts#L70
+
+// An internal deploy simultation with hardhat
+// How to run: npx hardhat run scripts/Lottery.ts
+
+// TODO: Re-write scripts to deploy to Sepolia with viem.  Then run:
+// npx ts-node scripts/01-deploy-token
+
+
+/**
+Secnarios:
+Amount of tokens given per ETH paid
+
+purchaseRatio = TOKEN_RATIO 
+TOKEN_RATIO = 1 : 1 ETH = 1 token
+TOKEN_RATIO = 2 : 1 ETH = 2 tokens
+TOKEN_RATIO = 5 : 1 ETH = 5 tokens
+
+Solidity
+    /// @notice Gives tokens based on the amount of ETH sent
+    /// @dev This implementation is prone to rounding problems
+    function purchaseTokens() external payable {
+        paymentToken.mint(msg.sender, msg.value * purchaseRatio);
+    }
+
+TS
+  const tx = await contract.write.purchaseTokens({
+    value: parseEther(amount) / TOKEN_RATIO,
+    account: accounts[Number(index)].account,
+  });
+
+
+Must approve spending (transfer to 3rd parthy contract of of ERC20)
+    const allowTx = await token.write.approve([contractAddress, MAXUINT256], {
+        account: accounts[Number(index)].account,
+    });
+
+
+**/
+
+
 import { viem } from "hardhat";
 import { parseEther, formatEther, Address } from "viem";
 import * as readline from "readline";
@@ -8,9 +49,9 @@ const MAXUINT256 =
 let contractAddress: Address;
 let tokenAddress: Address;
 
-const BET_PRICE = "1";
+const BET_PRICE = "10";
 const BET_FEE = "0.2";
-const TOKEN_RATIO = 1n;
+const TOKEN_RATIO = 2000n;
 
 async function main() {
     await initContracts();

@@ -61,6 +61,7 @@ In your terminal do the following:
    - **Important:** If you plan to run smart contract tests, scripts, or compile contracts please rename `hardhat.config-public-copy.ts` to `hardhat.config.ts`.  Be sure to further configure it to include any ncessary environment variables as discussed in previous lessons!
 
 
+
 # Personal Notes: Bootstrapping Project
 
 These are my personal notes.  So, please follow instructions above for installing repo.
