@@ -52,7 +52,7 @@ const OwnerDashboard = () => {
 
     }
 
-    const handleStartGame async (event: any) => {
+    const handleStartGame = async (event: any) => {
 
         event.preventDefault();
         console.log('Output from Success View: ' + event.target.formWithdrawAmount.value);
