@@ -11,9 +11,9 @@ export function BuyTokens() {
     const { address, isConnected } = useAccount();
 
     const { data: hash, writeContract, isPending } = useWriteContract();
-
-    let tokenAddress;
-    let lotteryAddress;
+ 
+    let tokenAddress = '0x01515A57ca4D713272409FE16c3229C0C1ac81fb';
+    let lotteryAddress = '0xB638EB5287c9378D779e397976CDA76EB91a6836';
 
     async function buyTokens() {
         writeContract({
@@ -25,7 +25,16 @@ export function BuyTokens() {
     }
 
     return (
-        // TODO: How to implement the msg.value? just a form here? 
+        <form onSubmit={buyTokens}>
+        <input name='address'></input>
+        <input name='tokenQuantity'></input>
+        <button
+            disabled={isPending}
+            type="submit"
+        >
+            {isPending ? 'Confirming...' : 'Buy Tokens'}
+        </button>
+    </form>
     )
 
 }

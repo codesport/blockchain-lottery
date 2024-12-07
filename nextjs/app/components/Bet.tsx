@@ -12,8 +12,8 @@ export function Bet() {
 
     const { data: hash, writeContract, isPending } = useWriteContract(); // action for executing a write function on a contract - these functions require gas to be executed, and a tx needs to be broadcasted to update state on the blockchain
 
-    let tokenAddress;
-    let lotteryAddress;
+    let tokenAddress = '0x01515A57ca4D713272409FE16c3229C0C1ac81fb';
+    let lotteryAddress = '0xB638EB5287c9378D779e397976CDA76EB91a6836';
 
     async function bet() {
         writeContract({
@@ -46,28 +46,15 @@ export function Bet() {
                 disabled={isPending}
                 type="submit"
             >
-                {isPending ? 'Confirming...' : 'Mint'}
+                {isPending ? 'Confirming...' : 'Bet'}
             </button>
+
+            {/* useSendTransaction Hook */}
+            {hash && <div>Transaction Hash: {hash}</div>}
+
+            {/* useWaitForTransactionReceipt Hook */}
+            {isConfirming && <div>Waiting for confirmation...</div>}
+            {isConfirmed && <div>Transaction confirmed.</div>}
         </form>
-    )
-}
-
-export function PrizeWithdrawal() {
-    const { address, isConnected } = useAccount(); // Wagmi hook for getting the current account
-
-    const { data: hash, writeContract } = useWriteContract(); // action for executing a write function on a contract - these functions require gas to be executed, and a tx needs to be broadcasted to update state on the blockchain
-
-    async function prizeWithdraw() {
-        // need to pass in the amount that the person will withdraw from the prize pool from some form
-    }
-}
-
-export function OwnerWithdrawal() {
-    async function ownerWithdrawal() {
-        // need to pass in amount from some form
-    }
-
-    return (
-        <button onSubmit={ownerWithdrawal}></button>
     )
 }

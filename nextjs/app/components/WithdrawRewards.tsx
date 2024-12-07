@@ -7,6 +7,10 @@ import LotteryAbi from '../../../contracts/artifacts/contracts/Lottery.sol/Lotte
 import TokenAbi from '../../../contracts/artifacts/contracts/LotteryToken.sol/LotteryToken.json';
 
 export function PrizeWithdrawalForWinner() {
+
+    let tokenAddress = '0x01515A57ca4D713272409FE16c3229C0C1ac81fb';
+    let lotteryAddress = '0xB638EB5287c9378D779e397976CDA76EB91a6836';
+
     const { address, isConnected } = useAccount(); // Wagmi hook for getting the current account
 
     const { data: hash, writeContract, isPending } = useWriteContract(); // action for executing a write function on a contract - these functions require gas to be executed, and a tx needs to be broadcasted to update state on the blockchain
@@ -18,7 +22,7 @@ export function PrizeWithdrawalForWinner() {
         const amountToWithdraw = formData.get('amount');
 
         writeContract({
-            address: "LOTTERY-ADDRESS",
+            address: lotteryAddress as `0x${string}`,
             abi: LotteryAbi,
             functionName: 'prizeWithdraw',
             args: [amountToWithdraw]
