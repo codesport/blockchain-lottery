@@ -15,7 +15,7 @@ const OwnerOpenBets = () => {
     const { data: hash, error, isPending, writeContract } = useWriteContract()
 
 
-    //TODO: Find out how to properly TYPE and form event object!
+    //TODO: Find out how to properly TYPE a form event object!
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleOpenBets = async (event: any) => {
 
