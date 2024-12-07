@@ -8,7 +8,8 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-
+// import { Input } from "@/components/ui/input";
+// import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Calendar } from "lucide-react";
@@ -18,8 +19,8 @@ import OwnerWithdraw from "./OwnerWithdraw";
 
 const OwnerDashboard = () => {
 
-    const [withdrawAmount, setWithdrawAmount] = React.useState("");
-    const [closingTime, setClosingTime] = React.useState("");
+    // const [withdrawAmount, setWithdrawAmount] = React.useState("");
+    // const [closingTime, setClosingTime] = React.useState("");
 
 
 
@@ -137,9 +138,13 @@ const OwnerDashboard = () => {
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
+
+
                             <div className="space-y-2">
                                 <OwnerWithdraw />
                             </div>
+
+
                         </CardContent>
                     </Card>
                 </TabsContent>
