@@ -54,7 +54,6 @@ const OwnerOpenBets = () => {
                 </label>
 
                 {/* OPEN_BETS (Start Game): */}
-                {/* this sets the state variable but doesn't call event handle: handleOpenBets (event) */}
                 {/* TODO 1: Create a menu to  let Admin choose sec, min, hr, or days.*/}
                 {/* TODO 2:  Contract uses seconds so convert anything !== seconds to seconds */}
                 {/* TODO 3: Include countdown time of when game ends */}

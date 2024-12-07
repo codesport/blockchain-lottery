@@ -54,12 +54,12 @@ const OwnerWithdraw = () => {
                 </label>
 
                 {/* OWNER WITHDRAW: */}
-                {/* NB: anything with input fiekd use form element and onSubmit.  If just button use onClick */}
+                {/* NB: anything with input field use form element and onSubmit.  If just button use onClick */}
                 <Input
                     placeholder="0.00"
                     name="formWthdrawAmount"
                     type="number"
-                    {/* this sets the state variable but doesn't call event handle: handleWithdraw (event)*/}
+                    // this sets the state variable but doesn't call event handle: handleWithdraw (event)
                     // value={withdrawAmount}
                     // onChange={(e) => setWithdrawAmount(e.target.value)}
                     className="w-full"

@@ -153,9 +153,9 @@ const OwnerDashboard = () => {
                 <TabsContent value="close" className="space-y-4">
                     <Card>
                         <CardHeader>
-                            <CardTitle>Open New Lottery Round</CardTitle>
+                            <CardTitle>End Lottery Early</CardTitle>
                             <CardDescription>
-                                Set the closing time for the next lottery round
+                                Click to close the lottery now
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
