@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { type BaseError, useWaitForTransactionReceipt, useWriteContract, useAccount } from 'wagmi'
+import { type BaseError, useWaitForTransactionReceipt, useWriteContract, /*useAccount*/ } from 'wagmi'
 import { abi } from "../utils/Lottery.json";
 import contractAddresses from '../utils/contract-data.json'
 import { parseEther } from 'viem';
@@ -14,7 +14,8 @@ const OwnerWithdraw = () => {
     const lotteryAddress = contractAddresses.lottoAddress
     const { data: hash, error, isPending, writeContract } = useWriteContract()
 
-
+    //TODO: Find out how to properly TYPE and form event object!
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleWithdraw = async (event: any) => {
 
         event.preventDefault();
@@ -46,7 +47,7 @@ const OwnerWithdraw = () => {
 
     return (
         <React.Fragment>
-
+            {/* Using `form` allows us to send all Form attribute in the `event` object */}
             <form id="ownerWithdrawForm" onSubmit={handleWithdraw}>
                 <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                     Amount (ETH)

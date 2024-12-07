@@ -13,11 +13,12 @@ const OwnerCloseLottery = () => {
     const lotteryAddress = contractAddresses.lottoAddress
     const { data: hash, error, isPending, writeContract } = useWriteContract()
 
-
+    //TODO: Find out how to properly TYPE and form event object!
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleCloseLottery = async (event: any) => {
 
         event.preventDefault();
-        console.log('Output from Success View: ' + event.target.formWithdrawAmount.value);
+        //console.log('Output from Success View: ' + event.target.formCloseLottery.value);
 
         try {
             writeContract({
@@ -42,7 +43,7 @@ const OwnerCloseLottery = () => {
     return (
         <React.Fragment>
 
-
+            {/* Using `form` allows us to send all Form attribute in the `event` object */}
             <form id="ownerWithdrawForm" onSubmit={handleCloseLottery}>
                 <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                     Amount (ETH)
@@ -52,7 +53,7 @@ const OwnerCloseLottery = () => {
                 {/* NB: anything with input fiekd use form element and onSubmit.  If just button use onClick */}
                 <Input
                     placeholder="0.00"
-                    name="formWthdrawAmount"
+                    name="formCloseLottery"
                     type="number"
                     {/* this sets the state variable but doesn't call event handle: handleWithdraw (event)*/}
                     // value={withdrawAmount}
