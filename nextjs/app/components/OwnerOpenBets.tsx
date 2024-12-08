@@ -9,6 +9,7 @@ import { parseEther } from 'viem';
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { timeStamp } from 'console';
 
 const OwnerOpenBets = () => {
 
@@ -27,7 +28,7 @@ const OwnerOpenBets = () => {
         const timeUTC = theTime / 1000
 
         event.preventDefault();
-        console.log('Output from Form Submit ' + event.target.fromGameDuration.value);
+        console.log('Output from Form Submit ' + event.target.fromGameDuration.value + ' minutes');
 
         let duration: number = Number(event.target.fromGameDuration.value) * 60
 
@@ -35,7 +36,8 @@ const OwnerOpenBets = () => {
 
         duration = duration + timeUTC
 
-        console.log('Duration + current UTC seconds: ', duration)
+        console.log('Current Sepolia getBlock.timeStamp in UTC:', timeUTC)
+        console.log('Duration seconds + getBlock.timeStamp seconds: ', duration)
 
 
 
@@ -49,7 +51,7 @@ const OwnerOpenBets = () => {
                 address: lotteryAddress as `0x${string}`,
                 abi: abi,
                 functionName: 'openBets',
-                args: [BigInt(event.target.fromGameDuration.value)],
+                args: [BigInt(duration)],
 
             })
 

@@ -3,6 +3,7 @@
   - [Contributing Team Members](#contributing-team-members)
   - [Overview](#overview)
   - [Demo](#demo)
+  - [Opening Bet Screenshot](#opening-bet-screenshot)
 - [Smart Contract Deployment](#smart-contract-deployment)
   - [Verifying Deployed Contracts With Hardhat: `hardhat-verify` Plugin](#verifying-deployed-contracts-with-hardhat-hardhat-verify-plugin)
 - [Key Learnings](#key-learnings)
@@ -44,6 +45,10 @@ It terms of team responsibilities, there are 3-core parts:
  <video src="https://github.com/user-attachments/assets/6b0fd2f9-35e5-449e-95a9-846dc00dfd15"></video>
 
  
+## Opening Bet Screenshot
+
+![Opening Bet Screenshot](images/open-bet-ui-confirmation.gif)
+
 # Smart Contract Deployment
 
 The script used to deploy the contract is located here: https://github.com/codesport/blockchain-lottery/blob/master/contracts/scripts/02-deploy-lottery.ts
