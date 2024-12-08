@@ -1,5 +1,6 @@
 # Encode Club EVM Bootcamp Group 2, Assignment 5: Blockchain Lottery App
 - [Encode Club EVM Bootcamp Group 2, Assignment 5: Blockchain Lottery App](#encode-club-evm-bootcamp-group-2-assignment-5-blockchain-lottery-app)
+  - [Contributing Team Members](#contributing-team-members)
   - [Overview](#overview)
   - [Demo](#demo)
 - [Key Learnings](#key-learnings)
@@ -9,6 +10,12 @@
   - [Install Instructions](#install-instructions)
     - [Install Steps](#install-steps)
 - [Personal Notes: Bootstrapping Project](#personal-notes-bootstrapping-project)
+
+## Contributing Team Members
+
+DAaJDn 
+Mn8EN0 
+XEGTvv  
 
 ## Overview
 
@@ -36,6 +43,7 @@ It terms of team responsibilities, there are 3-core parts:
 
  <video src="https://github.com/user-attachments/assets/6b0fd2f9-35e5-449e-95a9-846dc00dfd15"></video>
 
+ 
 
 # Key Learnings
 
