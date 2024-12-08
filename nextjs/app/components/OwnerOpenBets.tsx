@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { type BaseError, useWaitForTransactionReceipt, useWriteContract, /*useAccount*/ } from 'wagmi'
+import { type BaseError, useWaitForTransactionReceipt, useWriteContract, usePublicClient, /*useAccount*/ } from 'wagmi'
 import { abi } from "../utils/Lottery.json";
 import contractAddresses from '../utils/contract-data.json'
 import { parseEther } from 'viem';
@@ -13,22 +13,30 @@ const OwnerOpenBets = () => {
 
     const lotteryAddress = contractAddresses.lottoAddress
     const { data: hash, error, isPending, writeContract } = useWriteContract()
-
+    const client = usePublicClient();
+    let localTimeStamp: unknown
 
     //TODO: Find out how to properly TYPE a form event object!
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleOpenBets = async (event: any) => {
 
         event.preventDefault();
-        console.log('Output from Success View: ' + event.target.fromGameDuration.value);
+        console.log('Output from Form Submit ' + event.target.fromGameDuration.value);
+
+        const block = await client.getBlock();
+        localTimeStamp = block.timestamp
+
+
+        // const timestamp = currentBlock?.timestamp ?? 0;
+        // const tx = await contract.write.openBets([timestamp + BigInt(duration)]);
 
         try {
 
             writeContract({
                 address: lotteryAddress as `0x${string}`,
                 abi: abi,
-                functionName: 'ownerWithdraw',
-                args: [parseEther(event.target.fromGameDuration.value)],
+                functionName: 'openBets',
+                args: [BigInt(event.target.fromGameDuration.value)],
 
             })
 

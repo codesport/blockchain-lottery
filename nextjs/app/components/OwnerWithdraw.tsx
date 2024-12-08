@@ -19,7 +19,7 @@ const OwnerWithdraw = () => {
     const handleWithdraw = async (event: any) => {
 
         event.preventDefault();
-        console.log('Output from Success View: ' + event.target.formWithdrawAmount.value);
+        console.log('Output from Form Submit: ' + event.target.formWithdrawAmount.value);
 
         try {
 
