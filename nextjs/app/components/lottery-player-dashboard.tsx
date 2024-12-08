@@ -11,6 +11,10 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Coins, Ticket, Trophy, Timer } from "lucide-react";
+import { PrizeWithdrawalForWinner } from "./WithdrawRewards";
+import { Bet } from "./Bet";
+import { BetMany } from "./BetMany";
+import { BuyTokens } from "./BuyToken";
 
 const PlayerDashboard = () => {
   const [purchaseAmount, setPurchaseAmount] = React.useState("");
@@ -33,6 +37,9 @@ const PlayerDashboard = () => {
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
               Your GOLD Balance
+              {
+                // can get balance of wallet here
+              } 
             </CardTitle>
             <Coins className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
@@ -93,14 +100,8 @@ const PlayerDashboard = () => {
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Amount (ETH)</label>
-                  <Input
-                    type="number"
-                    placeholder="0.00"
-                    value={purchaseAmount}
-                    onChange={(e) => setPurchaseAmount(e.target.value)}
-                  />
+                <BuyTokens/>
                 </div>
-                <Button className="w-full">Purchase GOLD</Button>
               </CardContent>
             </Card>
 
@@ -138,19 +139,21 @@ const PlayerDashboard = () => {
             <CardContent className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
-                  <Button className="w-full">Place Single Bet</Button>
+                  {/* <Button className="w-full">Place Single Bet</Button> */}
+                  <Bet/>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
-                    <Input
+                    {/* <Input
                       type="number"
                       placeholder="Number of bets"
                       value={betTimes}
                       onChange={(e) => setBetTimes(e.target.value)}
-                    />
-                    <Button className="whitespace-nowrap">
+                    /> */}
+                    <BetMany/>
+                    {/* <Button className="whitespace-nowrap">
                       Place Multiple Bets
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               </div>
@@ -190,6 +193,7 @@ const PlayerDashboard = () => {
                 <AlertDescription>
                   You have 0 ETH available to claim
                 </AlertDescription>
+                <PrizeWithdrawalForWinner/>
               </Alert>
               <Button className="w-full">Withdraw Prize</Button>
             </CardContent>
