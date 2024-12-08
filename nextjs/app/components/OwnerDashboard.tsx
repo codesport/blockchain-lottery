@@ -41,7 +41,8 @@ const OwnerDashboard = () => {
                 <TabsList>
                     <TabsTrigger value="overview">Overview</TabsTrigger>
                     <TabsTrigger value="withdraw">Withdraw</TabsTrigger>
-                    <TabsTrigger value="lottery">Lottery Control</TabsTrigger>
+                    <TabsTrigger value="openLottery">Start New Game</TabsTrigger>
+                    <TabsTrigger value="closeLottery">End Game</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="overview" className="space-y-4">
@@ -109,8 +110,26 @@ const OwnerDashboard = () => {
                     </Card>
                 </TabsContent>
 
+                <TabsContent value="closeLottery" className="space-y-4">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>End the Lottery</CardTitle>
+                            <CardDescription>
+                                Thew Game must be manually ended by admistrator
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
 
-                <TabsContent value="lottery" className="space-y-4">
+                            <div className="space-y-2">
+                                <OwnerCloseLottery />
+                            </div>
+
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+
+
+                <TabsContent value="openLottery" className="space-y-4">
                     <Card>
                         <CardHeader>
                             <CardTitle>Open New Lottery Round</CardTitle>

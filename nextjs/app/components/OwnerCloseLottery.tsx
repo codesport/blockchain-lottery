@@ -46,15 +46,10 @@ const OwnerCloseLottery = () => {
             {/* Using `form` allows us to send all Form attribute in the `event` object */}
             <form id="ownerWithdrawForm" onSubmit={handleCloseLottery}>
                 <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    Amount (ETH)
+                    Click to Close Lottery
                 </label>
 
-                <Input
-                    placeholder="0.00"
-                    name="formCloseLottery"
-                    type="number"
-                    className="w-full"
-                />
+
                 <Button className="w-full"
                     disabled={isPending}
                     type="submit"
