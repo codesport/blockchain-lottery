@@ -2,6 +2,8 @@
 - [Encode Club EVM Bootcamp Group 2, Assignment 5: Blockchain Lottery App](#encode-club-evm-bootcamp-group-2-assignment-5-blockchain-lottery-app)
   - [Overview](#overview)
   - [Demo](#demo)
+- [Key Learnings](#key-learnings)
+  - [Embed Videos in GitHub README.md](#embed-videos-in-github-readmemd)
 - [Smart Contract Deployment](#smart-contract-deployment)
   - [Verifying Deployed Contracts With Hardhat: `hardhat-verify` Plugin](#verifying-deployed-contracts-with-hardhat-hardhat-verify-plugin)
   - [Install Instructions](#install-instructions)
@@ -33,6 +35,25 @@ It terms of team responsibilities, there are 3-core parts:
 ## Demo
 
  <video src="https://github.com/user-attachments/assets/6b0fd2f9-35e5-449e-95a9-846dc00dfd15"></video>
+
+
+# Key Learnings
+
+## Embed Videos in GitHub README.md
+
+> 1. Open an issue on your repository. Don't save this issue.
+> 2. Drag the .mp4 file into the issue editor. This creates an asset in your repo and returns the URL.
+> 3. Copy the URL from the issue editor. Use this URL in the README.
+>
+> This also works in a README.rst like this:
+```
+.. raw:: html
+
+    <video src="URL"></video>
+```
+
+source attribution: [Marcello Parathoner](https://github.com/orgs/community/discussions/19403#discussioncomment-8432916)
+
 
 # Smart Contract Deployment
 
@@ -101,9 +122,11 @@ main().catch((error) => {
   
    ![Lotto Game Deploy](/images/lotto-game-deploy.png)
 
+* [Deployed and Verified Delta ERC20 Token Contract](https://sepolia.etherscan.io/address/0x01515A57ca4D713272409FE16c3229C0C1ac81fb)
+
+
    ![Lotto Game Verificsation](/images/lotto-game-verification.png)
 
-* [Deployed and Verified Delta ERC20 Token Contract](https://sepolia.etherscan.io/address/0x01515A57ca4D713272409FE16c3229C0C1ac81fb)
 
 As per the [hardhat docs](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#complex-arguments), configure `harhat.config`.ts and create a `arguments.ts` if working complex constructors. 
 
