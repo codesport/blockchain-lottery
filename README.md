@@ -4,6 +4,7 @@
   - [Overview](#overview)
   - [Demo](#demo)
   - [Opening Bet Screenshot](#opening-bet-screenshot)
+  - [Sepolia Confirm of Opening Bet](#sepolia-confirm-of-opening-bet)
 - [Smart Contract Deployment](#smart-contract-deployment)
   - [Verifying Deployed Contracts With Hardhat: `hardhat-verify` Plugin](#verifying-deployed-contracts-with-hardhat-hardhat-verify-plugin)
 - [Key Learnings](#key-learnings)
@@ -48,6 +49,10 @@ It terms of team responsibilities, there are 3-core parts:
 ## Opening Bet Screenshot
 
 ![Opening Bet Screenshot](images/open-bet-ui-confirmation.gif)
+
+## Sepolia Confirm of Opening Bet
+
+![alt text](images/sepolia-confirm-open-bets.png)
 
 # Smart Contract Deployment
 
