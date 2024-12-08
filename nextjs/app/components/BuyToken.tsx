@@ -1,33 +1,36 @@
 'use client'
 
 import * as React from 'react';
-import { type BaseError, useWaitForTransactionReceipt, getContract, useWriteContract, useAccount } from 'wagmi';
+import { type BaseError, useWaitForTransactionReceipt, useSendTransaction, useWriteContract, useAccount } from 'wagmi';
 import { formatEther, parseEther } from 'viem';
-import LotteryAbi from '../../../contracts/artifacts/contracts/Lottery.sol/Lottery.json';
+import { abi } from "../utils/Lottery.json";
 import TokenAbi from '../../../contracts/artifacts/contracts/LotteryToken.sol/LotteryToken.json';
+import { write } from 'fs';
 
 
 export function BuyTokens() {
     const { address, isConnected } = useAccount();
 
-    const { data: hash, writeContract, isPending } = useWriteContract();
- 
+    const { data: hash, error, isPending, writeContract } = useWriteContract()
+
     let tokenAddress = '0x01515A57ca4D713272409FE16c3229C0C1ac81fb';
     let lotteryAddress = '0xB638EB5287c9378D779e397976CDA76EB91a6836';
 
-    async function buyTokens() {
+    async function buyTokens(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+        const formData = new FormData(e.target as HTMLFormElement);
+        const value = formData.get('value') as string;
         writeContract({
-            // purchase tokens will give tokens based on the amt of eth sent
-            address: lotteryAddress as `0x${string}`,
-            abi: LotteryAbi,
-            functionName: 'purchaseTokens'
+            abi,
+            address: lotteryAddress,
+            functionName: 'purchaseTokens',
+            value: parseEther(value)
         })
     }
 
     return (
         <form onSubmit={buyTokens}>
-        <input name='address'></input>
-        <input name='tokenQuantity'></input>
+        <input name='value' placeholder='ETH to Send'></input>
         <button
             disabled={isPending}
             type="submit"

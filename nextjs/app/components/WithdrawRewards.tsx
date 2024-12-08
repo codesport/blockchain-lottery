@@ -3,8 +3,7 @@
 import * as React from 'react';
 import { type BaseError, useWaitForTransactionReceipt, getContract, useWriteContract, useAccount } from 'wagmi';
 import { formatEther, parseEther } from 'viem';
-import LotteryAbi from '../../../contracts/artifacts/contracts/Lottery.sol/Lottery.json';
-import TokenAbi from '../../../contracts/artifacts/contracts/LotteryToken.sol/LotteryToken.json';
+import { abi } from "../utils/Lottery.json";
 
 export function PrizeWithdrawalForWinner() {
 
@@ -23,7 +22,7 @@ export function PrizeWithdrawalForWinner() {
 
         writeContract({
             address: lotteryAddress as `0x${string}`,
-            abi: LotteryAbi,
+            abi,
             functionName: 'prizeWithdraw',
             args: [amountToWithdraw]
         })
@@ -55,6 +54,9 @@ export function PrizeWithdrawalForWinner() {
 }
 
 export function WithdrawOwnerRewards() {
+    let tokenAddress = '0x01515A57ca4D713272409FE16c3229C0C1ac81fb';
+    let lotteryAddress = '0xB638EB5287c9378D779e397976CDA76EB91a6836';
+
     const { address, isConnected } = useAccount(); // Wagmi hook for getting the current account
 
     const { data: hash, writeContract, isPending } = useWriteContract(); // action for executing a write function on a contract - these functions require gas to be executed, and a tx needs to be broadcasted to update state on the blockchain
@@ -66,9 +68,9 @@ export function WithdrawOwnerRewards() {
                 const amountToWithdraw = formData.get('amount');
         
                 writeContract({
-                    address: "LOTTERY-ADDRESS",
+                    address: lotteryAddress as `0x${string}`,
                     abi: LotteryAbi,
-                    functionName: 'prizeWithdraw',
+                    functionName: 'ownerWithdraw',
                     args: [amountToWithdraw]
                 })
     }

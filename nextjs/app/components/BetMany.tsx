@@ -6,23 +6,13 @@ import { formatEther, parseEther } from 'viem';
 import { abi } from "../utils/Lottery.json";
 import TokenAbi from '../../../contracts/artifacts/contracts/LotteryToken.sol/LotteryToken.json';
 
-export function Bet() {
+export function BetMany() {
 
     const { address, isConnected } = useAccount(); // Wagmi hook for getting the current account
 
     const { data: hash, writeContract, isPending } = useWriteContract(); // action for executing a write function on a contract - these functions require gas to be executed, and a tx needs to be broadcasted to update state on the blockchain
 
-    let tokenAddress = '0x01515A57ca4D713272409FE16c3229C0C1ac81fb';
     let lotteryAddress = '0xB638EB5287c9378D779e397976CDA76EB91a6836';
-
-    async function bet() {
-        writeContract({
-            address: lotteryAddress as `0x${string}`,
-            abi: abi,
-            functionName: "bet"
-            // no args
-        })
-    }
 
     async function betMany(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -39,12 +29,13 @@ export function Bet() {
     const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({ hash })
 
     return (
-        <form onSubmit={bet}>
+        <form onSubmit={betMany}>
+            <input name="times" placeholder='Number of Times to Bet'></input>
             <button className="betting"
                 disabled={isPending}
                 type="submit"
             >
-                {isPending ? 'Confirming...' : 'Place Single Bet'}
+                {isPending ? 'Confirming...' : 'Place Multiple Bets'}
             </button>
 
             {/* useSendTransaction Hook */}
