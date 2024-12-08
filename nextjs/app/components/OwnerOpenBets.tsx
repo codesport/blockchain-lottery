@@ -5,19 +5,19 @@ import { useEffect, useState } from 'react';
 import { type BaseError, useWaitForTransactionReceipt, useWriteContract, usePublicClient, /*useAccount*/ } from 'wagmi'
 import { abi } from "../utils/Lottery.json";
 import contractAddresses from '../utils/contract-data.json'
-import { parseEther } from 'viem';
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { timeStamp } from 'console';
 
 const OwnerOpenBets = () => {
 
     const lotteryAddress = contractAddresses.lottoAddress
     const { data: hash, error, isPending, writeContract } = useWriteContract()
+
     const [block, setBlock] = useState()
     const [theTime, setTheTime] = useState()
     const publicClient = usePublicClient()
+
     let displayTime: string = ''
 
 
@@ -38,9 +38,6 @@ const OwnerOpenBets = () => {
 
         console.log('Current Sepolia getBlock.timeStamp in UTC:', timeUTC)
         console.log('Duration seconds + getBlock.timeStamp seconds: ', duration)
-
-
-
 
         // const timestamp = currentBlock?.timestamp ?? 0;
         // const tx = await contract.write.openBets([timestamp + BigInt(duration)]);
@@ -64,7 +61,6 @@ const OwnerOpenBets = () => {
     }
 
     const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({ hash, })
-
 
 
     useEffect(() => {
@@ -101,13 +97,11 @@ const OwnerOpenBets = () => {
                 {/* OPEN_BETS (Start Game): */}
                 {/* TODO 1: Create a menu to  let Admin choose sec, min, hr, or days.*/}
                 {/* TODO 2:  Contract uses seconds so convert anything !== seconds to seconds */}
-                {/* TODO 3: Include countdown time of when game ends */}
+                {/* TODO 3: Include countdown timer for game end */}
                 <Input
                     placeholder="300"
                     name="fromGameDuration"
                     type="number"
-                    // value={closingTime}
-                    // onChange={(e) => setClosingTime(e.target.value)}
                     className="w-full"
                 />
 
