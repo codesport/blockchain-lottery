@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { useEffect, useState } from 'react';
 import { type BaseError, useWaitForTransactionReceipt, useWriteContract, usePublicClient, /*useAccount*/ } from 'wagmi'
 import { abi } from "../utils/Lottery.json";
 import contractAddresses from '../utils/contract-data.json'
@@ -13,18 +14,30 @@ const OwnerOpenBets = () => {
 
     const lotteryAddress = contractAddresses.lottoAddress
     const { data: hash, error, isPending, writeContract } = useWriteContract()
-    const client = usePublicClient();
-    let localTimeStamp: unknown
+    const [block, setBlock] = useState()
+    const [theTime, setTheTime] = useState()
+    const publicClient = usePublicClient()
+    let displayTime: string = ''
+
 
     //TODO: Find out how to properly TYPE a form event object!
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const handleOpenBets = async (event: any) => {
+    const handleOpenBets = async (event: any,) => {
+
+        const timeUTC = theTime / 1000
 
         event.preventDefault();
         console.log('Output from Form Submit ' + event.target.fromGameDuration.value);
 
-        const block = await client.getBlock();
-        localTimeStamp = block.timestamp
+        let duration: number = Number(event.target.fromGameDuration.value) * 60
+
+        console.log('Duration * 60 seconds: ', duration)
+
+        duration = duration + timeUTC
+
+        console.log('Duration + current UTC seconds: ', duration)
+
+
 
 
         // const timestamp = currentBlock?.timestamp ?? 0;
@@ -52,13 +65,35 @@ const OwnerOpenBets = () => {
 
 
 
+    useEffect(() => {
+        async function fetchBlock() {
+            try {
+                const block = await publicClient.getBlock();
+                setBlock(block);
+                setTheTime(Number(block.timestamp) * 1000)
+            } catch (error) {
+                console.error('Error fetching block:', error);
+            }
+            console.log(block)
+            console.log(theTime)
+        }
+
+        fetchBlock();
+
+
+
+    }, [publicClient]);
+
+    if (theTime) { (displayTime = new Date(theTime).toLocaleString()) }
+
+
     return (
         <React.Fragment>
 
             {/* Using `form` allows us to send all Form attribute in the `event` object */}
             <form id="ownerGameDurationForm" onSubmit={handleOpenBets}>
                 <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    Duration of Game Round (seconds)
+                    Chain data was last pulled at {displayTime}. Enter Lottery Duration in minutes from this time
                 </label>
 
                 {/* OPEN_BETS (Start Game): */}
@@ -77,7 +112,7 @@ const OwnerOpenBets = () => {
                 <Button className="w-full"
                     disabled={isPending}
                     type="submit"
-                > {isPending ? 'Confirming...' : 'Withdraw Funds'}
+                > {isPending ? 'Confirming...' : 'Start New Lottery'}
                 </Button>
 
                 {/* Data Source: useSendTransaction Hook */}
