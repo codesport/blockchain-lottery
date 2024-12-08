@@ -32,7 +32,8 @@ It terms of team responsibilities, there are 3-core parts:
 
 ## Demo
 
-https://github.com/codesport/blockchain-lottery/blob/master/images/Screen_Recording_2024-12-03_at_11.57.27_PM.mov
+ <video src="(https://github.com/user-attachments/assets/6b0fd2f9-35e5-449e-95a9-846dc00dfd15"></video>
+
 
 # Smart Contract Deployment
 
