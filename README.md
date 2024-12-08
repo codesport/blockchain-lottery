@@ -3,19 +3,19 @@
   - [Contributing Team Members](#contributing-team-members)
   - [Overview](#overview)
   - [Demo](#demo)
-- [Key Learnings](#key-learnings)
-  - [Embed Videos in GitHub README.md](#embed-videos-in-github-readmemd)
 - [Smart Contract Deployment](#smart-contract-deployment)
   - [Verifying Deployed Contracts With Hardhat: `hardhat-verify` Plugin](#verifying-deployed-contracts-with-hardhat-hardhat-verify-plugin)
-  - [Install Instructions](#install-instructions)
-    - [Install Steps](#install-steps)
+- [Key Learnings](#key-learnings)
+  - [Embed Videos in GitHub README.md](#embed-videos-in-github-readmemd)
+- [Install Instructions](#install-instructions)
+  - [Install Steps](#install-steps)
 - [Personal Notes: Bootstrapping Project](#personal-notes-bootstrapping-project)
 
 ## Contributing Team Members
 
-DAaJDn 
-Mn8EN0 
-XEGTvv  
+* DAaJDn 
+* Mn8EN0 
+* XEGTvv  
 
 ## Overview
 
@@ -44,25 +44,6 @@ It terms of team responsibilities, there are 3-core parts:
  <video src="https://github.com/user-attachments/assets/6b0fd2f9-35e5-449e-95a9-846dc00dfd15"></video>
 
  
-
-# Key Learnings
-
-## Embed Videos in GitHub README.md
-
-> 1. Open an issue on your repository. Don't save this issue.
-> 2. Drag the .mp4 file into the issue editor. This creates an asset in your repo and returns the URL.
-> 3. Copy the URL from the issue editor. Use this URL in the README.
->
-> This also works in a README.rst like this:
-```
-.. raw:: html
-
-    <video src="URL"></video>
-```
-
-source attribution: [Marcello Parathoner](https://github.com/orgs/community/discussions/19403#discussioncomment-8432916)
-
-
 # Smart Contract Deployment
 
 The script used to deploy the contract is located here: https://github.com/codesport/blockchain-lottery/blob/master/contracts/scripts/02-deploy-lottery.ts
@@ -184,9 +165,25 @@ For simple contructors, do the following:
 
 `npx hardhat verify 0x01515A57ca4D713272409FE16c3229C0C1ac81fb --network sepolia  "Delta Lotto Token" "DELTA"`
 
+# Key Learnings
+
+## Embed Videos in GitHub README.md
+
+> 1. Open an issue on your repository. Don't save this issue.
+> 2. Drag the .mp4 file into the issue editor. This creates an asset in your repo and returns the URL.
+> 3. Copy the URL from the issue editor. Use this URL in the README.
+>
+> This also works in a README.rst like this:
+```
+.. raw:: html
+
+    <video src="URL"></video>
+```
+
+source attribution: [Marcello Parathoner](https://github.com/orgs/community/discussions/19403#discussioncomment-8432916)
 
 
-## Install Instructions
+# Install Instructions
 
 This repo contains 2 directories: `contracts` and `nextjs`
 
@@ -196,7 +193,7 @@ This repo contains 2 directories: `contracts` and `nextjs`
 
 pnpm is the package manager. However, yarn and npm should also work. In the isntructions below, you can typcially subsititute the keyword `pnpm` for `npm`
 
-### Install Steps
+## Install Steps
 In your terminal do the following:
 
 1. Clone this repo
