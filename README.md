@@ -101,7 +101,7 @@ main().catch((error) => {
   
    ![Lotto Game Deploy](/images/lotto-game-deploy.png)
 
-      ![Lotto Game Verificsation](/images/lotto-game-verification.png)
+   ![Lotto Game Verificsation](/images/lotto-game-verification.png)
 
 * [Deployed and Verified Delta ERC20 Token Contract](https://sepolia.etherscan.io/address/0x01515A57ca4D713272409FE16c3229C0C1ac81fb)
 
