@@ -220,7 +220,9 @@ In your terminal do the following:
    
 5. Launch Next.js server: `pnpm dev`.  You should see the below in your browser:
 
-   ![directory top level](/images/version1.png)
+   ![app screenshot](/images/version3-screenshot.png)
+
+   
 
 6. Go to hardhat directory: `cd ../contracts`
 7. Install hardhat project:  `pnpm install`
