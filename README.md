@@ -12,6 +12,7 @@
   - [Verifying Deployed Contracts With Hardhat: `hardhat-verify` Plugin](#verifying-deployed-contracts-with-hardhat-hardhat-verify-plugin)
 - [Key Learnings](#key-learnings)
   - [Embed Videos in GitHub README.md](#embed-videos-in-github-readmemd)
+  - [Send Native Token to a Payable Function (wagmo v5.7.2+)](#send-native-token-to-a-payable-function-wagmo-v572)
 - [Install Instructions](#install-instructions)
   - [Install Steps](#install-steps)
 - [Personal Notes: Bootstrapping Project](#personal-notes-bootstrapping-project)
@@ -72,7 +73,7 @@ import { parseEther } from "viem";
 
 
 
-// TOKEN_RATIO = 200 : 1 ==> 1 ETH = 2000 tokens  ==> 1 token = .0005 ETH
+// TOKEN_RATIO = 2000 : 1 ==> 1 ETH = 2000 tokens  ==> 1 token = .0005 ETH
 
 const MAXUINT256 =
     115792089237316195423570985008687907853269984665640564039457584007913129639935n;
@@ -194,6 +195,23 @@ For simple contructors, do the following:
 ```
 
 source attribution: [Marcello Parathoner](https://github.com/orgs/community/discussions/19403#discussioncomment-8432916)
+
+## Send Native Token to a Payable Function (wagmo v5.7.2+)
+
+```
+import { useWriteContract } from "wagmi";
+
+const { data: hash, error, isPending, writeContract } = useWriteContract()
+
+writeContract({
+  abi: lottoABI,
+  address: lottoAddress,
+  functionName: 'purchaseTokens',
+  // Add amount to deposit. It works. :-D 
+  value: parseEther("0.005")
+});
+            ...
+```
 
 
 # Install Instructions
