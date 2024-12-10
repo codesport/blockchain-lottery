@@ -1,8 +1,8 @@
 "use client";
 
-import Navbar from "@/app/components/navbar";
-import Footer from "@/app/components/footer";
-import PlayerDashboard from "../components/OwnerDashboard";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import PlayerDashboard from "../components/LotteryPlayerDashboard";
 
 export default function Home() {
     return (

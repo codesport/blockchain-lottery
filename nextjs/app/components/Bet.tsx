@@ -1,56 +1,48 @@
 'use client'
 
 import * as React from 'react';
-import { type BaseError, useWaitForTransactionReceipt, getContract, useWriteContract, useAccount } from 'wagmi';
-import { formatEther, parseEther } from 'viem';
+import { useWaitForTransactionReceipt, useWriteContract, useAccount } from 'wagmi';
+import { Button } from "@/app/components/ui/button";
 import { abi } from "../utils/Lottery.json";
-import TokenAbi from '../../../contracts/artifacts/contracts/LotteryToken.sol/LotteryToken.json';
 
 export function Bet() {
+    // Get user's wallet connection status
+    const { isConnected } = useAccount();
 
-    const { address, isConnected } = useAccount(); // Wagmi hook for getting the current account
+    // Hook for executing contract write operations
+    const { data: hash, writeContract, isPending } = useWriteContract();
 
-    const { data: hash, writeContract, isPending } = useWriteContract(); // action for executing a write function on a contract - these functions require gas to be executed, and a tx needs to be broadcasted to update state on the blockchain
+    // Contract address for the lottery
+    const lotteryAddress = '0xB638EB5287c9378D779e397976CDA76EB91a6836';
 
-    let tokenAddress = '0x01515A57ca4D713272409FE16c3229C0C1ac81fb';
-    let lotteryAddress = '0xB638EB5287c9378D779e397976CDA76EB91a6836';
-
-    async function bet() {
+    // Handle form submission and contract interaction
+    async function bet(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        // Call the bet function on the smart contract
         writeContract({
             address: lotteryAddress as `0x${string}`,
             abi: abi,
             functionName: "bet"
-            // no args
+            // No arguments needed for single bet
         })
     }
 
-    async function betMany(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault();
-        const formData = new FormData(e.target as HTMLFormElement);
-        const times = formData.get('timesToBet');
-        writeContract({
-            address: lotteryAddress as `0x${string}`,
-            abi: abi,
-            functionName: "betMany",
-            args: [times]
-        })
-    }
-
+    // Track transaction status
     const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({ hash })
 
     return (
         <form onSubmit={bet}>
-            <button className="betting"
-                disabled={isPending}
+            <Button 
+                className="w-full"
+                disabled={isPending || !isConnected} // Disable if transaction pending or wallet not connected
                 type="submit"
+                variant="default"
             >
                 {isPending ? 'Confirming...' : 'Place Single Bet'}
-            </button>
+            </Button>
 
-            {/* useSendTransaction Hook */}
+            {/* Transaction status messages */}
             {hash && <div>Transaction Hash: {hash}</div>}
-
-            {/* useWaitForTransactionReceipt Hook */}
             {isConfirming && <div>Waiting for confirmation...</div>}
             {isConfirmed && <div>Transaction confirmed.</div>}
         </form>
