@@ -76,6 +76,21 @@ const PlayerDashboard = () => {
     enabled: !!address && !!tokenAddress,
   });
 
+  // Get total bets for the connected address
+  const { data: bets } = useContractRead({
+    address: LOTTERY_ADDRESS as `0x${string}`,
+    abi: lotteryAbi,
+    functionName: "betsPerPlayer",
+    args: [address],
+  });
+
+  // Get total number of participants
+  const { data: totalParticipants } = useContractRead({
+    address: LOTTERY_ADDRESS as `0x${string}`,
+    abi: lotteryAbi,
+    functionName: "totalParticipants",
+  });
+
   // Update current time every second
   useEffect(() => {
     const timer = setInterval(() => {
@@ -142,7 +157,9 @@ const PlayerDashboard = () => {
             <Ticket className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">0</div>
+            <div className="text-2xl font-bold">
+              {bets ? Number(bets) : "0"}
+            </div>
           </CardContent>
         </Card>
 
@@ -167,6 +184,20 @@ const PlayerDashboard = () => {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{getTimeRemaining()}</div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">
+              Total Players
+            </CardTitle>
+            <div className="h-4 w-4 text-muted-foreground">👥</div>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">
+              {totalParticipants ? Number(totalParticipants) : "0"}
+            </div>
           </CardContent>
         </Card>
       </div>
