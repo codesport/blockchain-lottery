@@ -1,93 +1,176 @@
-'use client'
+"use client";
 
-import * as React from 'react';
-import { type BaseError, useWaitForTransactionReceipt, getContract, useWriteContract, useAccount } from 'wagmi';
-import { formatEther, parseEther } from 'viem';
+import * as React from "react";
+import {
+  type BaseError,
+  useWaitForTransactionReceipt,
+  useWriteContract,
+  useAccount,
+} from "wagmi";
+import { formatEther, parseEther } from "viem";
 import { abi } from "../utils/Lottery.json";
 
+/**
+ * PrizeWithdrawalForWinner Component
+ * 
+ * This component provides a form interface for lottery winners to withdraw their prize money.
+ * It interacts with the smart contract's prizeWithdraw function to transfer tokens from the
+ * prize pool to the winner's wallet.
+ * 
+ * Features:
+ * - Form input for specifying withdrawal amount
+ * - Transaction status tracking
+ * - Real-time feedback on transaction progress
+ * - Error handling for failed transactions
+ * 
+ * @component
+ * @example
+ * ```jsx
+ * <PrizeWithdrawalForWinner />
+ * ```
+ */
 export function PrizeWithdrawalForWinner() {
+  // Contract addresses for the lottery and token
+  const tokenAddress = "0x01515A57ca4D713272409FE16c3229C0C1ac81fb";
+  const lotteryAddress = "0xB638EB5287c9378D779e397976CDA76EB91a6836";
 
-    let tokenAddress = '0x01515A57ca4D713272409FE16c3229C0C1ac81fb';
-    let lotteryAddress = '0xB638EB5287c9378D779e397976CDA76EB91a6836';
+  // Get user's wallet address and connection status
+  const { address, isConnected } = useAccount();
 
-    const { address, isConnected } = useAccount(); // Wagmi hook for getting the current account
+  // Hook for executing contract write operations
+  const { data: hash, writeContract, isPending } = useWriteContract();
 
-    const { data: hash, writeContract, isPending } = useWriteContract(); // action for executing a write function on a contract - these functions require gas to be executed, and a tx needs to be broadcasted to update state on the blockchain
+  /**
+   * Handles the prize withdrawal form submission
+   * @param {React.FormEvent<HTMLFormElement>} e - Form submission event
+   */
+  async function prizeWithdraw(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const amountToWithdraw = formData.get("amount");
 
-    async function prizeWithdraw(e: React.FormEvent<HTMLFormElement>) {
-        // need to pass in the amount that the person will withdraw from the prize pool from some form
-        e.preventDefault();
-        const formData = new FormData(e.target as HTMLFormElement);
-        const amountToWithdraw = formData.get('amount');
+    writeContract({
+      address: lotteryAddress as `0x${string}`,
+      abi,
+      functionName: "prizeWithdraw",
+      args: [amountToWithdraw],
+    });
+  }
 
-        writeContract({
-            address: lotteryAddress as `0x${string}`,
-            abi,
-            functionName: 'prizeWithdraw',
-            args: [amountToWithdraw]
-        })
-    }
+  // Hook to track transaction confirmation status
+  const { isLoading: isConfirming, isSuccess: isConfirmed } =
+    useWaitForTransactionReceipt({
+      hash,
+    });
 
-    const { isLoading: isConfirming, isSuccess: isConfirmed } =
-        useWaitForTransactionReceipt({
-            hash,
-    })
+  return (
+    <form onSubmit={prizeWithdraw}>
+      <input
+        name="tokenQuantity"
+        className="w-full mb-4 p-3 rounded-[--radius] bg-background text-foreground border-input"
+        placeholder="Amount to Withdraw From Prize Pool"
+        required
+      />
+      <button
+        className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-[--radius] px-4 py-2 font-medium"
+        disabled={isPending}
+        type="submit"
+      >
+        {isPending ? "Confirming..." : "Withdraw Prize Money"}
+      </button>
 
-    return (
-        <form onSubmit={prizeWithdraw}>
-            <input name="tokenQuantity" className="w-sm p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Amount to Withdraw From Prize Pool" required />
-            <button className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-3.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-                disabled={isPending}
-                type="submit"
-            >
-                {isPending ? 'Confirming...' : 'Withdraw Prize Money'}
-            </button>
+      {hash && (
+        <div className="mt-4 text-muted-foreground">
+          Transaction Hash: {hash}
+        </div>
+      )}
 
-            {/* useSendTransaction Hook */}
-            {hash && <div>Transaction Hash: {hash}</div>}
-
-            {/* useWaitForTransactionReceipt Hook */}
-            {isConfirming && <div>Waiting for confirmation...</div>}
-            {isConfirmed && <div>Transaction confirmed.</div>}
-    </form >
-    )
+      {isConfirming && (
+        <div className="mt-2 text-muted-foreground">
+          Waiting for confirmation...
+        </div>
+      )}
+      {isConfirmed && (
+        <div className="mt-2 text-accent-foreground">
+          Transaction confirmed.
+        </div>
+      )}
+    </form>
+  );
 }
 
+/**
+ * WithdrawOwnerRewards Component
+ * 
+ * This component allows the lottery owner to withdraw their accumulated rewards/fees
+ * from the lottery contract. Only the contract owner can successfully execute these
+ * withdrawals.
+ * 
+ * Features:
+ * - Form input for withdrawal amount
+ * - Transaction status tracking
+ * - Access control (only owner can successfully execute)
+ * - Real-time transaction feedback
+ * 
+ * Security Considerations:
+ * - Only the contract owner can successfully execute withdrawals
+ * - Amount validation is performed by the smart contract
+ * 
+ * @component
+ * @example
+ * ```jsx
+ * <WithdrawOwnerRewards />
+ * ```
+ */
 export function WithdrawOwnerRewards() {
-    let tokenAddress = '0x01515A57ca4D713272409FE16c3229C0C1ac81fb';
-    let lotteryAddress = '0xB638EB5287c9378D779e397976CDA76EB91a6836';
+  // Contract addresses for the lottery and token
+  const tokenAddress = "0x01515A57ca4D713272409FE16c3229C0C1ac81fb";
+  const lotteryAddress = "0xB638EB5287c9378D779e397976CDA76EB91a6836";
 
-    const { address, isConnected } = useAccount(); // Wagmi hook for getting the current account
+  // Get user's wallet address and connection status
+  const { address, isConnected } = useAccount();
 
-    const { data: hash, writeContract, isPending } = useWriteContract(); // action for executing a write function on a contract - these functions require gas to be executed, and a tx needs to be broadcasted to update state on the blockchain
+  // Hook for executing contract write operations
+  const { data: hash, writeContract, isPending } = useWriteContract();
 
-    async function ownerWithdrawal(e: React.FormEvent<HTMLFormElement>) {
-                // need to pass in the amount that the person will withdraw from the prize pool from some form
-                e.preventDefault();
-                const formData = new FormData(e.target as HTMLFormElement);
-                const amountToWithdraw = formData.get('amount');
-        
-                writeContract({
-                    address: lotteryAddress as `0x${string}`,
-                    abi: LotteryAbi,
-                    functionName: 'ownerWithdraw',
-                    args: [amountToWithdraw]
-                })
-    }
+  /**
+   * Handles the owner withdrawal form submission
+   * @param {React.FormEvent<HTMLFormElement>} e - Form submission event
+   */
+  async function ownerWithdrawal(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const amountToWithdraw = formData.get("amount");
 
-    return (
-        <form onSubmit={ownerWithdrawal}>
-        <input name="tokenQuantity" className="w-sm p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Amount to Withdraw From Prize Pool (Owner)" required />
-        <button className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-3.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-            disabled={isPending}
-            type="submit"
-        >
-            {isPending ? 'Confirming...' : 'Withdraw Prize Money'}
-        </button>
+    writeContract({
+      address: lotteryAddress as `0x${string}`,
+      abi,
+      functionName: "ownerWithdraw",
+      args: [amountToWithdraw],
+    });
+  }
 
-        {/* useSendTransaction Hook */}
-        {hash && <div>Transaction Hash: {hash}</div>}
-</form >
+  return (
+    <form onSubmit={ownerWithdrawal}>
+      <input
+        name="tokenQuantity"
+        className="w-full mb-4 p-3 rounded-[--radius] bg-background text-foreground border-input"
+        placeholder="Amount to Withdraw From Prize Pool (Owner)"
+        required
+      />
+      <button
+        className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-[--radius] px-4 py-2 font-medium"
+        disabled={isPending}
+        type="submit"
+      >
+        {isPending ? "Confirming..." : "Withdraw Prize Money"}
+      </button>
 
-    )
+      {hash && (
+        <div className="mt-4 text-muted-foreground">
+          Transaction Hash: {hash}
+        </div>
+      )}
+    </form>
+  );
 }

@@ -1,9 +1,9 @@
 'use client'
 
 
-import LotteryHero from '@/app/components/lottery-hero';
-import Navbar from '@/app/components/navbar';
-import  Footer  from '@/app/components/footer';
+import LotteryHero from './components/LotteryHero';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 
 export default function Home() {

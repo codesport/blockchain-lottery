@@ -1,9 +1,40 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/components/ui/button";
 import { DollarSign, Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/app/components/ui/sheet";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
+/**
+ * @component Navbar
+ * @description The main navigation component that appears at the top of every page.
+ * It provides navigation links and wallet connection functionality.
+ * 
+ * Features:
+ * - Responsive design with mobile hamburger menu
+ * - Wallet connection integration via RainbowKit
+ * - Sticky positioning with backdrop blur
+ * - Dynamic navigation links
+ * 
+ * Layout:
+ * - Desktop: Full horizontal navigation with visible links
+ * - Mobile: Hamburger menu that opens a side sheet
+ * 
+ * @example
+ * ```tsx
+ * // Usage in layout
+ * import Navbar from '@/app/components/Navbar';
+ * 
+ * export default function Layout() {
+ *   return (
+ *     <>
+ *       <Navbar />
+ *     </>
+ *   );
+ * }
+ * ```
+ * 
+ * @returns {JSX.Element} The rendered Navbar component
+ */
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b backdrop-blur">
