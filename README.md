@@ -181,7 +181,9 @@ For simple contructors, do the following:
 
 # Attempting To Bet
 
-Unfortunately, we were not able to successfully place a bet with our wallet due to high gas and not enough funds. Interestingly enough, gas fees were way higher on Etherscan than through the local app. Almost 1 Sepolia ETH difference in gas. 
+Unfortunately, we were not able to successfully place a bet with our wallet due to high gas and not enough funds (faucets we previously used also seemed to not work). Interestingly enough, gas fees were way higher on Etherscan than through the local app. Almost 1 Sepolia ETH difference in gas. 
+
+   ![Lotto Game Bet](/images/lotto-game-bet-fail.png)
 
 You can see the reverted transactions [here on Etherscan](https://sepolia.etherscan.io/address/0xb638eb5287c9378d779e397976cda76eb91a6836).
 
