@@ -179,6 +179,12 @@ For simple contructors, do the following:
 
 `npx hardhat verify 0x01515A57ca4D713272409FE16c3229C0C1ac81fb --network sepolia  "Delta Lotto Token" "DELTA"`
 
+# Attempting To Bet
+
+Unfortunately, we were not able to successfully place a bet with our wallet due to high gas and not enough funds. Interestingly enough, gas fees were way higher on Etherscan than through the local app. Almost 1 Sepolia ETH difference in gas. 
+
+You can see the reverted transactions [here on Etherscan](https://sepolia.etherscan.io/address/0xb638eb5287c9378d779e397976cda76eb91a6836).
+
 # Key Learnings
 
 ## Embed Videos in GitHub README.md
