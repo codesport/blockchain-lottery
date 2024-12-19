@@ -223,6 +223,64 @@ writeContract({
 ```
 ## Multichain Deployment: Optimism Sepolia
 
+Used Etherscan's [V2 API](https://docs.etherscan.io/etherscan-v2) which allows progematic and multichain read-write functioality.
+
+```
+// Updated: 02-deploy-lottery.ts
+    // programatic contract verification
+    // https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#using-programmatically
+    // Add https://api.etherscan.io/v2/api?chainid=11155420&apikey='+ ETHERSCAN_API_KEY, to hardhat config to make work
+    await hre.run("verify:verify", {
+        address: receipt.contractAddress,
+        constructorArguments: [TOKEN_NAME, SYMBOL, TOKEN_RATIO, parseEther(BET_PRICE), parseEther(BET_FEE),]
+    });
+
+    await hre.run("verify:verify", {
+        address: tokenAddressToSave,
+        constructorArguments: [TOKEN_NAME, SYMBOL]
+    });
+
+```
+
+```
+// Updated: hardhat.config.ts
+    defaultNetwork: 'optimismSepolia',
+    networks: {
+        hardhat: {
+        },
+        optimismSepolia: {
+            url: OPT_SEPOLIA_RPC_URL_1,
+            accounts: [PRIVATE_KEY], // PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
+        },
+
+    },
+
+...
+    /**
+    *  Etherscan API V2: Multichain - One Key, Multiple Chains
+    * 
+    * Single API Key: Access multiple chains using just one API key on Etherscan
+    * Cross-chain: Query multichain data by adding a chain ID to API request
+     */
+    etherscan: {
+        apiKey: {
+            optimismSepolia: ETHERSCAN_API_KEY
+        },
+        customChains: [
+            {
+                network: "optimismSepolia",
+                chainId: 11155420,
+                urls: {
+                    apiURL: 'https://api.etherscan.io/v2/api?chainid=11155420&apikey='+ ETHERSCAN_API_KEY,
+                    browserURL: 'https://sepolia-optimism.etherscan.io/'
+                }
+            }
+        ]
+    },
+
+```
+
+### Deployment and Transaction Confirmations
 * Project was succesfully deployed and verfied on Optimism Sepolia.
   * https://sepolia-optimism.etherscan.io/tx/0xd60fc7f9b23d92953747c5ad965c732af7eb9900954f1273ef5fc2a9a1a86e47
 ![Screenshot 2024-12-19 043535](https://github.com/user-attachments/assets/ddd1b67b-236c-4e30-bdbc-9978d80f98c3)
@@ -238,7 +296,8 @@ writeContract({
 
 * Spending approval was granted to Lotto contract
    * https://sepolia-optimism.etherscan.io/tx/0xf33bdb4abeecba3e70ffdcff4a04788b3c1f682996cea8f9843852698c5a503d
- ![Screenshot 2024-12-19 043221](https://github.com/user-attachments/assets/7fed26f8-edda-4cdf-8294-adaaa4f4593c)
+![optimsim-approve-token](https://github.com/user-attachments/assets/317f65d2-4061-4c81-affc-c12be7d60562)
+
 
 
 # Install Instructions
