@@ -26,7 +26,7 @@
 
 ## Overview
 
-Encode Club suggested that we extend and further build out our Homework 5 submission as our final project!
+**NB: Encode Club suggested that we extend and further build out our Homework 5 submission as our final project!**
 
 This project leverages learnings from the [Browser-based Voting App](https://github.com/codesport/erc20votes-part2). 
 
