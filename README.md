@@ -229,7 +229,8 @@ writeContract({
 
 * Bets on Optimism Sepolia were opened
   * https://sepolia-optimism.etherscan.io/tx/0x1cc9e139a74a07e19e63e8a61e21abdc99823cc6a78f1d8c1f2d37ed8098162d
-![Screenshot 2024-12-19 042755](https://github.com/user-attachments/assets/914a8c5c-13b0-4383-be70-3c5ecc923e74)
+![optimism-open-bets](https://github.com/user-attachments/assets/54783217-abb8-4c84-b461-a143d60009cc)
+
 
 * $DELTA tokens were purchased 
  * https://sepolia-optimism.etherscan.io/tx/0xb1126ddc17b58750157893122d75bbf8d425a5b2b05af0113b6b454d96430e45
