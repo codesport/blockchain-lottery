@@ -1,4 +1,4 @@
-# Final Project: Encode Club EVM Bootcamp Group 2 - Multichain Blockchain Lottery App
+# HW 5 Extended to Final Project: Encode Club EVM Bootcamp Group 2 - Multichain Blockchain Lottery App
 
 ![Lottery Splash Page Screenshot](images/version3-screenshot.png)
 
@@ -25,6 +25,8 @@
 * XEGTvv  
 
 ## Overview
+
+Encode Club suggested that we extend and further build out our Homework 5 submission as our final project!
 
 This project leverages learnings from the [Browser-based Voting App](https://github.com/codesport/erc20votes-part2). 
 
