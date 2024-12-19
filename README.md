@@ -13,6 +13,7 @@
 - [Key Learnings](#key-learnings)
   - [Embed Videos in GitHub README.md](#embed-videos-in-github-readmemd)
   - [Send Native Token to a Payable Function (wagmo v5.7.2+)](#send-native-token-to-a-payable-function-wagmo-v572)
+  - [Multichain Deployment: Optimism Sepolia](#multichain-deployment-optimism-sepolia)
 - [Install Instructions](#install-instructions)
   - [Install Steps](#install-steps)
 - [Personal Notes: Bootstrapping Project](#personal-notes-bootstrapping-project)
@@ -220,7 +221,20 @@ writeContract({
 });
             ...
 ```
+## Multichain Deployment: Optimism Sepolia
 
+* Project was succesfully deployed and verfied on Optimism Sepolia.
+ * https://sepolia-optimism.etherscan.io/tx/0xd60fc7f9b23d92953747c5ad965c732af7eb9900954f1273ef5fc2a9a1a86e47
+
+* Bets on Optimism Sepolia were opened
+ * https://sepolia-optimism.etherscan.io/tx/0x1cc9e139a74a07e19e63e8a61e21abdc99823cc6a78f1d8c1f2d37ed8098162d
+
+* $DELTA tokens were purchased 
+ * https://sepolia-optimism.etherscan.io/tx/0xb1126ddc17b58750157893122d75bbf8d425a5b2b05af0113b6b454d96430e45
+
+* Spending approval was granted to Lotto contract
+  * https://sepolia-optimism.etherscan.io/tx/0xf33bdb4abeecba3e70ffdcff4a04788b3c1f682996cea8f9843852698c5a503d
+ 
 
 # Install Instructions
 
