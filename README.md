@@ -225,6 +225,27 @@ writeContract({
 
 Used Etherscan's [V2 API](https://docs.etherscan.io/etherscan-v2) which allows programatic and multichain read-write functioality. Usage examples are available within [Etherscan's docs](https://docs.etherscan.io/etherscan-v2/api-endpoints/accounts).
 
+### Deployment and Transaction Confirmations
+* Project was succesfully deployed and verfied on Optimism Sepolia.
+  * https://sepolia-optimism.etherscan.io/tx/0xd60fc7f9b23d92953747c5ad965c732af7eb9900954f1273ef5fc2a9a1a86e47
+![Screenshot 2024-12-19 043535](https://github.com/user-attachments/assets/ddd1b67b-236c-4e30-bdbc-9978d80f98c3)
+
+* Bets on Optimism Sepolia were opened
+  * https://sepolia-optimism.etherscan.io/tx/0x1cc9e139a74a07e19e63e8a61e21abdc99823cc6a78f1d8c1f2d37ed8098162d
+![optimism-open-bets](https://github.com/user-attachments/assets/54783217-abb8-4c84-b461-a143d60009cc)
+
+
+* $DELTA tokens were purchased 
+ * https://sepolia-optimism.etherscan.io/tx/0xb1126ddc17b58750157893122d75bbf8d425a5b2b05af0113b6b454d96430e45
+ ![optimsim-purchase-tokens](https://github.com/user-attachments/assets/a105e76f-af7d-4cbb-956c-fe41ca35dd86)
+
+* Spending approval was granted to Lotto contract
+   * https://sepolia-optimism.etherscan.io/tx/0xf33bdb4abeecba3e70ffdcff4a04788b3c1f682996cea8f9843852698c5a503d
+![optimsim-approve-token](https://github.com/user-attachments/assets/317f65d2-4061-4c81-affc-c12be7d60562)
+
+
+### Programatic Deploy & Verify Code Snippets
+
 ```
 // Updated: 02-deploy-lottery.ts
     // programatic contract verification
@@ -279,25 +300,6 @@ Used Etherscan's [V2 API](https://docs.etherscan.io/etherscan-v2) which allows p
     },
 
 ```
-
-### Deployment and Transaction Confirmations
-* Project was succesfully deployed and verfied on Optimism Sepolia.
-  * https://sepolia-optimism.etherscan.io/tx/0xd60fc7f9b23d92953747c5ad965c732af7eb9900954f1273ef5fc2a9a1a86e47
-![Screenshot 2024-12-19 043535](https://github.com/user-attachments/assets/ddd1b67b-236c-4e30-bdbc-9978d80f98c3)
-
-* Bets on Optimism Sepolia were opened
-  * https://sepolia-optimism.etherscan.io/tx/0x1cc9e139a74a07e19e63e8a61e21abdc99823cc6a78f1d8c1f2d37ed8098162d
-![optimism-open-bets](https://github.com/user-attachments/assets/54783217-abb8-4c84-b461-a143d60009cc)
-
-
-* $DELTA tokens were purchased 
- * https://sepolia-optimism.etherscan.io/tx/0xb1126ddc17b58750157893122d75bbf8d425a5b2b05af0113b6b454d96430e45
- ![optimsim-purchase-tokens](https://github.com/user-attachments/assets/a105e76f-af7d-4cbb-956c-fe41ca35dd86)
-
-* Spending approval was granted to Lotto contract
-   * https://sepolia-optimism.etherscan.io/tx/0xf33bdb4abeecba3e70ffdcff4a04788b3c1f682996cea8f9843852698c5a503d
-![optimsim-approve-token](https://github.com/user-attachments/assets/317f65d2-4061-4c81-affc-c12be7d60562)
-
 
 
 # Install Instructions
