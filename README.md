@@ -223,9 +223,7 @@ writeContract({
 ```
 ## Multichain Deployment: Optimism Sepolia
 
-Used Etherscan's [V2 API](https://docs.etherscan.io/etherscan-v2) which allows programatic and multichain read-write functioality. Usage examples are available within [Etherscan's docs](https://docs.etherscan.io/etherscan-v2/api-endpoints/accounts).
-
-### Deployment and Transaction Confirmations
+### Optimism Deployment and Transaction Confirmations
 * Project was succesfully deployed and verfied on Optimism Sepolia.
   * https://sepolia-optimism.etherscan.io/tx/0xd60fc7f9b23d92953747c5ad965c732af7eb9900954f1273ef5fc2a9a1a86e47
 ![Screenshot 2024-12-19 043535](https://github.com/user-attachments/assets/ddd1b67b-236c-4e30-bdbc-9978d80f98c3)
@@ -245,6 +243,8 @@ Used Etherscan's [V2 API](https://docs.etherscan.io/etherscan-v2) which allows p
 
 
 ### Programatic Deploy & Verify Code Snippets
+
+Etherscan's [V2 API](https://docs.etherscan.io/etherscan-v2) was used for programatic and multichain read-write functioality. Our modifications to `hardhatconfig.ts` and `02-deploy-sepolia.ts` are as follows:
 
 ```
 // Updated: 02-deploy-lottery.ts
@@ -300,6 +300,8 @@ Used Etherscan's [V2 API](https://docs.etherscan.io/etherscan-v2) which allows p
     },
 
 ```
+
+Official usage examples are available from [Etherscan's docs](https://docs.etherscan.io/etherscan-v2/api-endpoints/accounts).
 
 
 # Install Instructions
