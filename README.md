@@ -1,8 +1,8 @@
-# Encode Club EVM Bootcamp Group 2, Assignment 5: Blockchain Lottery App
+# Final Project: Encode Club EVM Bootcamp Group 2 - Multichain Blockchain Lottery App
 
 ![Lottery Splash Page Screenshot](images/version3-screenshot.png)
 
-- [Encode Club EVM Bootcamp Group 2, Assignment 5: Blockchain Lottery App](#encode-club-evm-bootcamp-group-2-assignment-5-blockchain-lottery-app)
+- Final Project: Encode Club EVM Bootcamp Group 2 - Multichain Blockchain Lottery App
   - [Contributing Team Members](#contributing-team-members)
   - [Overview](#overview)
   - [Demo](#demo)
