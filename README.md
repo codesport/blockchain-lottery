@@ -223,7 +223,7 @@ writeContract({
 ```
 ## Multichain Deployment: Optimism Sepolia
 
-Used Etherscan's [V2 API](https://docs.etherscan.io/etherscan-v2) which allows progematic and multichain read-write functioality.
+Used Etherscan's [V2 API](https://docs.etherscan.io/etherscan-v2) which allows programatic and multichain read-write functioality. Usage examples are available within [Etherscan's docs](https://docs.etherscan.io/etherscan-v2/api-endpoints/accounts).
 
 ```
 // Updated: 02-deploy-lottery.ts
