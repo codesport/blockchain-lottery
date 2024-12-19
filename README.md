@@ -224,17 +224,21 @@ writeContract({
 ## Multichain Deployment: Optimism Sepolia
 
 * Project was succesfully deployed and verfied on Optimism Sepolia.
- * https://sepolia-optimism.etherscan.io/tx/0xd60fc7f9b23d92953747c5ad965c732af7eb9900954f1273ef5fc2a9a1a86e47
+  * https://sepolia-optimism.etherscan.io/tx/0xd60fc7f9b23d92953747c5ad965c732af7eb9900954f1273ef5fc2a9a1a86e47
+![Screenshot 2024-12-19 043535](https://github.com/user-attachments/assets/ddd1b67b-236c-4e30-bdbc-9978d80f98c3)
 
 * Bets on Optimism Sepolia were opened
- * https://sepolia-optimism.etherscan.io/tx/0x1cc9e139a74a07e19e63e8a61e21abdc99823cc6a78f1d8c1f2d37ed8098162d
+  * https://sepolia-optimism.etherscan.io/tx/0x1cc9e139a74a07e19e63e8a61e21abdc99823cc6a78f1d8c1f2d37ed8098162d
+![Screenshot 2024-12-19 042755](https://github.com/user-attachments/assets/914a8c5c-13b0-4383-be70-3c5ecc923e74)
 
 * $DELTA tokens were purchased 
  * https://sepolia-optimism.etherscan.io/tx/0xb1126ddc17b58750157893122d75bbf8d425a5b2b05af0113b6b454d96430e45
+ ![optimsim-purchase-tokens](https://github.com/user-attachments/assets/a105e76f-af7d-4cbb-956c-fe41ca35dd86)
 
 * Spending approval was granted to Lotto contract
-  * https://sepolia-optimism.etherscan.io/tx/0xf33bdb4abeecba3e70ffdcff4a04788b3c1f682996cea8f9843852698c5a503d
- 
+   * https://sepolia-optimism.etherscan.io/tx/0xf33bdb4abeecba3e70ffdcff4a04788b3c1f682996cea8f9843852698c5a503d
+ ![Screenshot 2024-12-19 043221](https://github.com/user-attachments/assets/7fed26f8-edda-4cdf-8294-adaaa4f4593c)
+
 
 # Install Instructions
 
